@@ -2,5 +2,8 @@
 
 This is my personal website. I am a software engineer at BYU.
 
-Links:
+Go to the website here:
+https://joshuajob-cs.github.io
+
+Additional links:
 https://www.linkedin.com/in/joshua-job-cs/
