@@ -26,27 +26,15 @@
 
 /* ── Side panels ─────────────────────────────────────────── */
 .hero__photo-panel,
-.hero__elephant-panel {
+.hero__comic-panel {
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-}
-
-.hero__photo-panel {
   background: var(--clr-surface-2);
 }
 
-.hero__elephant-panel {
-  background:
-    radial-gradient(ellipse 75% 65% at 60% 50%, rgba(245, 192, 0, 0.18) 0%, transparent 70%),
-    #1e3f6e;
-  justify-content: center;
-  align-items: center;
-  padding: 32px 56px 32px 24px;
-}
-
-/* dark gradient fade on photo toward center */
+/* fade photo panel toward center-right */
 .hero__photo-panel::after {
   content: '';
   position: absolute;
@@ -55,33 +43,22 @@
   pointer-events: none;
 }
 
-/* dark gradient fade on elephant panel toward center */
-.hero__elephant-panel::before {
+/* fade comic panel toward center-left */
+.hero__comic-panel::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to left, transparent 50%, rgba(26, 42, 58, 0.85) 75%, var(--clr-surface) 100%);
+  background: linear-gradient(to left, transparent 50%, var(--clr-surface) 100%);
   pointer-events: none;
-  z-index: 1;
 }
 
-.hero__photo {
+.hero__photo,
+.hero__comic-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-}
-
-.hero__elephant {
-  width: 100%;
-  max-width: 260px;
-  height: auto;
-  position: relative;
-  z-index: 2;
-  filter:
-    drop-shadow(0 8px 28px rgba(0, 0, 0, 0.6))
-    drop-shadow(0 0 40px rgba(245, 192, 0, 0.25));
 }
 
 /* panel labels */
@@ -127,10 +104,13 @@
 .hero__tagline {
   margin: 22px 0 0;
   font-size: clamp(0.85rem, 1.5vw, 1.1rem);
-  color: var(--clr-cyan);
-  line-height: 1.5;
-  max-width: 26ch;
+  color: var(--clr-text);
+  line-height: 1.7;
+  max-width: 30ch;
 }
+
+.hero__tagline-yellow { color: var(--clr-yellow); font-style: italic; }
+.hero__tagline-cyan   { color: var(--clr-cyan);   font-style: italic; }
 
 .hero__actions {
   display: flex;
@@ -161,13 +141,8 @@
     padding: 32px 24px 24px;
   }
 
-  .hero__elephant-panel {
-    padding: 24px;
-    justify-content: center;
-  }
-
-  .hero__elephant-panel::before {
-    background: linear-gradient(to bottom, var(--clr-surface) 0%, transparent 30%);
+  .hero__comic-panel::after {
+    background: linear-gradient(to bottom, transparent 50%, var(--clr-surface) 100%);
   }
 
   .hero__panel-label--right {
