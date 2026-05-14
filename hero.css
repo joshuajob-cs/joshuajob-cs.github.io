@@ -1,0 +1,183 @@
+/* ── Hero Component ──────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  min-height: 480px;
+  background: var(--clr-surface);
+  border-radius: 28px;
+  border: 1px solid var(--clr-border);
+  box-shadow:
+    0 0 0 1px var(--clr-border),
+    0 40px 80px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  position: relative;
+}
+
+/* center spotlight glow */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 30%, rgba(245, 192, 0, 0.10), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Side panels ─────────────────────────────────────────── */
+.hero__photo-panel,
+.hero__elephant-panel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__photo-panel {
+  background: var(--clr-surface-2);
+}
+
+.hero__elephant-panel {
+  background:
+    radial-gradient(ellipse 75% 65% at 60% 50%, rgba(245, 192, 0, 0.18) 0%, transparent 70%),
+    #1e3f6e;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 24px;
+}
+
+/* dark gradient fade on photo toward center */
+.hero__photo-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 50%, var(--clr-surface) 100%);
+  pointer-events: none;
+}
+
+/* dark gradient fade on elephant panel toward center */
+.hero__elephant-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, transparent 50%, rgba(26, 42, 58, 0.85) 75%, var(--clr-surface) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.hero__elephant {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter:
+    drop-shadow(0 8px 28px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 40px rgba(245, 192, 0, 0.25));
+}
+
+/* panel labels */
+.hero__panel-label {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  font-weight: 700;
+  z-index: 3;
+}
+
+.hero__panel-label--left  { left:  20px; }
+.hero__panel-label--right { right: 20px; }
+
+/* ── Center column ───────────────────────────────────────── */
+.hero__center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 0;
+}
+
+.hero__name {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.9;
+  color: var(--clr-yellow);
+  text-transform: uppercase;
+  text-shadow: 0 0 80px rgba(245, 192, 0, 0.35);
+  letter-spacing: -0.02em;
+}
+
+.hero__tagline {
+  margin: 22px 0 0;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-style: italic;
+  color: var(--clr-taupe);
+  line-height: 1.5;
+  max-width: 26ch;
+}
+
+.hero__tagline em {
+  color: var(--clr-cyan);
+  font-style: normal;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 240px auto auto;
+    min-height: unset;
+  }
+
+  .hero__photo-panel {
+    grid-row: 1;
+    height: 240px;
+  }
+
+  .hero__photo-panel::after {
+    background: linear-gradient(to bottom, transparent 50%, var(--clr-surface) 100%);
+  }
+
+  .hero__center {
+    padding: 32px 24px 24px;
+  }
+
+  .hero__elephant-panel {
+    padding: 24px;
+    justify-content: center;
+  }
+
+  .hero__elephant-panel::before {
+    background: linear-gradient(to bottom, var(--clr-surface) 0%, transparent 30%);
+  }
+
+  .hero__panel-label--right {
+    bottom: 12px;
+    right: 16px;
+  }
+}
