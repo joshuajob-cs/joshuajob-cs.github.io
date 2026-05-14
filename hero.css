@@ -43,7 +43,7 @@
     #1e3f6e;
   justify-content: center;
   align-items: center;
-  padding: 32px 24px;
+  padding: 32px 56px 32px 24px;
 }
 
 /* dark gradient fade on photo toward center */
@@ -127,15 +127,9 @@
 .hero__tagline {
   margin: 22px 0 0;
   font-size: clamp(0.85rem, 1.5vw, 1.1rem);
-  font-style: italic;
-  color: var(--clr-taupe);
+  color: var(--clr-cyan);
   line-height: 1.5;
   max-width: 26ch;
-}
-
-.hero__tagline em {
-  color: var(--clr-cyan);
-  font-style: normal;
 }
 
 .hero__actions {
