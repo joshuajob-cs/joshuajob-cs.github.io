@@ -1,7 +1,7 @@
 /* ── Hero Component ──────────────────────────────────────── */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1.3fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   min-height: 480px;
   background: var(--clr-surface);
   border-radius: 28px;
@@ -59,6 +59,11 @@
   object-fit: cover;
   object-position: center top;
   display: block;
+}
+
+.hero__comic-photo {
+  transform: scale(1.6) translate(10%, 8%);
+  transform-origin: center 25%;
 }
 
 /* panel labels */
