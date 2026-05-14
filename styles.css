@@ -52,102 +52,6 @@ body {
   padding: 36px 24px 60px;
 }
 
-/* ── Hero Title Component ────────────────────────────────── */
-.hero-title {
-  display: grid;
-  gap: 24px;
-  padding: 48px;
-  background: var(--clr-surface);
-  border-radius: 28px;
-  border: 1px solid var(--clr-border);
-  box-shadow:
-    0 0 0 1px var(--clr-border),
-    0 40px 80px rgba(0, 0, 0, 0.5);
-}
-
-.hero-title__eyebrow {
-  margin: 0 0 20px;
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--clr-cyan);
-  font-weight: 700;
-}
-
-.hero-title__heading {
-  margin: 0;
-  font-size: clamp(2.2rem, 4.5vw, 4rem);
-  font-weight: 900;
-  font-style: italic;
-  line-height: 1.0;
-  color: var(--clr-yellow);
-  text-shadow: 0 0 60px var(--clr-yellow-glow);
-}
-
-.hero-title__sub {
-  margin: 20px 0 0;
-  color: var(--clr-taupe);
-  font-size: 1.05rem;
-  max-width: 50ch;
-}
-
-.hero-title__actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 28px;
-}
-
-.hero-title__side {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.hero-title__elephant-panel {
-  position: relative;
-  background: var(--clr-surface-2);
-  border-radius: 20px;
-  border: 1px solid var(--clr-border);
-  padding: 24px 20px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-}
-
-.hero-title__elephant-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 65%, var(--clr-yellow-glow), transparent 70%);
-  pointer-events: none;
-}
-
-.hero-title__elephant {
-  width: 100%;
-  max-width: 180px;
-  height: auto;
-  position: relative;
-  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.5));
-}
-
-.hero-title__panel-label {
-  margin: 14px 0 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--clr-text-muted);
-  font-weight: 600;
-  position: relative;
-}
-
-.hero-title__info-card {
-  background: var(--clr-surface-2);
-  border-radius: 18px;
-  padding: 22px 24px;
-  border: 1px solid var(--clr-border);
-}
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .btn {
@@ -235,7 +139,6 @@ h2 {
   margin-top: 40px;
 }
 
-.hero-title__sub,
 .section p,
 .card p,
 .contact-section p {
@@ -312,12 +215,6 @@ h2 {
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
-@media (min-width: 900px) {
-  .hero-title {
-    grid-template-columns: 1.6fr 1fr;
-    align-items: center;
-  }
-}
 
 @media (max-width: 640px) {
   .page-shell {
