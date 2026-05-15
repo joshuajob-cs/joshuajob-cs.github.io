@@ -377,6 +377,16 @@
         document.getElementById('projectsNext').addEventListener('click', function () { rotateTo(current + 1); });
         dots.forEach(function (d, i) { d.addEventListener('click', function () { rotateTo(i); }); });
 
+        var projectsSection = document.getElementById('projects');
+        var hovered = false;
+        projectsSection.addEventListener('mouseenter', function () { hovered = true; });
+        projectsSection.addEventListener('mouseleave', function () { hovered = false; });
+        document.addEventListener('keydown', function (e) {
+          if (!hovered) return;
+          if (e.key === 'ArrowLeft'  || e.key === 'a' || e.key === 'A') { e.preventDefault(); rotateTo(current - 1); }
+          if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { e.preventDefault(); rotateTo(current + 1); }
+        });
+
         rotateTo(0);
       })();
     </script>
