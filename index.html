@@ -184,7 +184,7 @@
           <div class="about-block about-callout about-callout--taupe">
             <h2 class="about-heading">What Am I Doing Here?</h2>
             <p>
-              Working on <strong>Eduquest</strong> — the best business in the
+              Working on <a href="https://www.eduquestai.org/" target="_blank" rel="noopener" class="eduquest-link"><strong>Eduquest</strong><span class="eduquest-tooltip">Go to Eduquest</span></a> — the best business in the
               world (look it up).
             </p>
           </div>
@@ -193,7 +193,7 @@
             <h2 class="about-heading">What Is Eduquest?</h2>
 
             <p>
-              <strong>Eduquest</strong> is an AI to help parents and teachers
+              <a href="https://www.eduquestai.org/" target="_blank" rel="noopener" class="eduquest-link"><strong>Eduquest</strong><span class="eduquest-tooltip">Go to Eduquest</span></a> is an AI to help parents and teachers
               create fun learning projects for students!
             </p>
           </div>
@@ -216,7 +216,7 @@
                 >I believe school can be just as engaging and fulfilling as
                 anything else.</span
               >
-              Hence <strong>Eduquest</strong> — where building projects
+              Hence <a href="https://www.eduquestai.org/" target="_blank" rel="noopener" class="eduquest-link"><strong>Eduquest</strong><span class="eduquest-tooltip">Go to Eduquest</span></a> — where building projects
               <em>is</em> the homework.
             </p>
           </div>
@@ -387,6 +387,23 @@
     <script src="about-colors.js"></script>
     <script src="carousel.js"></script>
     <script>
+      document.querySelectorAll(".eduquest-link").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          if (!("ontouchstart" in window)) return;
+          if (link.dataset.touched) {
+            delete link.dataset.touched;
+            return;
+          }
+          e.preventDefault();
+          link.dataset.touched = "1";
+          link.querySelector(".eduquest-tooltip").style.opacity = "1";
+          setTimeout(function () {
+            delete link.dataset.touched;
+            link.querySelector(".eduquest-tooltip").style.opacity = "";
+          }, 3000);
+        });
+      });
+
       document.querySelectorAll(".project-img-wrap").forEach(function (wrap) {
         wrap.addEventListener("click", function (e) {
           if (e.target.tagName === "A") return;
