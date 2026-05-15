@@ -250,6 +250,76 @@ h2 {
   color: var(--clr-yellow);
 }
 
+/* ── Project cards ───────────────────────────────────────── */
+.project-card {
+  padding: 20px;
+}
+
+.project-card h3 {
+  margin: 0 0 12px;
+}
+
+.project-img-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-img-wrap img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: filter 0.25s;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.25s;
+  text-align: center;
+}
+
+.project-overlay p {
+  margin: 0;
+  color: var(--clr-text);
+  max-width: 40ch;
+}
+
+.project-overlay a {
+  color: var(--clr-cyan);
+  text-decoration: none;
+  border: 1px solid var(--clr-cyan);
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.project-overlay a:hover {
+  background: var(--clr-cyan);
+  color: var(--clr-bg);
+}
+
+.project-img-wrap.revealed .project-overlay,
+.project-img-wrap:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-img-wrap.revealed img,
+.project-img-wrap:hover img {
+  filter: brightness(0.4);
+}
+
 /* ── Contact ─────────────────────────────────────────────── */
 .contact-section {
   padding: 36px;

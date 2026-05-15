@@ -227,72 +227,55 @@
           <div class="carousel-wrapper">
             <div class="carousel-stage">
               <div class="carousel-ring" id="projectsRing">
-                <article class="card">
-                  <h3>
-                    <a
-                      href="https://github.com/joshuajob-cs/startup"
-                      target="_blank"
-                      rel="noreferrer"
-                      >Psychic Questions</a
-                    >
-                  </h3>
-                  <p>
-                    A JavaScript project with MIT License. Building something
-                    new and exciting.
-                  </p>
+                <article class="card project-card">
+                  <h3>Psychic Questions</h3>
+                  <div class="project-img-wrap">
+                    <img src="assets/PsychicQuestions.png" alt="Psychic Questions screenshot" />
+                    <div class="project-overlay">
+                      <p>A JavaScript project with MIT License. Building something new and exciting.</p>
+                      <a href="https://github.com/joshuajob-cs/startup" target="_blank" rel="noreferrer">View on GitHub</a>
+                    </div>
+                  </div>
                 </article>
-                <article class="card">
-                  <h3>
-                    <a
-                      href="https://github.com/joshuajob-cs/chess"
-                      target="_blank"
-                      rel="noreferrer"
-                      >Chess</a
-                    >
-                  </h3>
-                  <p>A Java implementation of the classic chess game.</p>
+                <article class="card project-card">
+                  <h3>Chess</h3>
+                  <div class="project-img-wrap">
+                    <img src="assets/PsychicQuestions.png" alt="Chess screenshot" />
+                    <div class="project-overlay">
+                      <p>A Java implementation of the classic chess game.</p>
+                      <a href="https://github.com/joshuajob-cs/chess" target="_blank" rel="noreferrer">View on GitHub</a>
+                    </div>
+                  </div>
                 </article>
-                <article class="card">
-                  <h3>
-                    <a
-                      href="https://github.com/joshuajob-cs/elephant-video-game"
-                      target="_blank"
-                      rel="noreferrer"
-                      >Elephant Video Game</a
-                    >
-                  </h3>
-                  <p>
-                    High school senior project using Godot engine. A ~10 minute
-                    video game to teach Calculus.
-                  </p>
+                <article class="card project-card">
+                  <h3>Elephant Video Game</h3>
+                  <div class="project-img-wrap">
+                    <img src="assets/PsychicQuestions.png" alt="Elephant Video Game screenshot" />
+                    <div class="project-overlay">
+                      <p>High school senior project using Godot engine. A ~10 minute video game to teach Calculus.</p>
+                      <a href="https://github.com/joshuajob-cs/elephant-video-game" target="_blank" rel="noreferrer">View on GitHub</a>
+                    </div>
+                  </div>
                 </article>
-                <article class="card">
-                  <h3>
-                    <a
-                      href="https://github.com/joshuajob-cs/face-cannon"
-                      target="_blank"
-                      rel="noreferrer"
-                      >Face Cannon</a
-                    >
-                  </h3>
-                  <p>
-                    AP Computer Science A project in Python. A cannon that
-                    shoots faces to collect coins.
-                  </p>
+                <article class="card project-card">
+                  <h3>Face Cannon</h3>
+                  <div class="project-img-wrap">
+                    <img src="assets/PsychicQuestions.png" alt="Face Cannon screenshot" />
+                    <div class="project-overlay">
+                      <p>AP Computer Science A project in Python. A cannon that shoots faces to collect coins.</p>
+                      <a href="https://github.com/joshuajob-cs/face-cannon" target="_blank" rel="noreferrer">View on GitHub</a>
+                    </div>
+                  </div>
                 </article>
-                <article class="card">
-                  <h3>
-                    <a
-                      href="https://github.com/joshuajob-cs/sudoku-solver"
-                      target="_blank"
-                      rel="noreferrer"
-                      >Sudoku Solver</a
-                    >
-                  </h3>
-                  <p>
-                    A Java program to solve Sudoku puzzles. Created in high
-                    school, took over a month to develop.
-                  </p>
+                <article class="card project-card">
+                  <h3>Sudoku Solver</h3>
+                  <div class="project-img-wrap">
+                    <img src="assets/PsychicQuestions.png" alt="Sudoku Solver screenshot" />
+                    <div class="project-overlay">
+                      <p>A Java program to solve Sudoku puzzles. Created in high school, took over a month to develop.</p>
+                      <a href="https://github.com/joshuajob-cs/sudoku-solver" target="_blank" rel="noreferrer">View on GitHub</a>
+                    </div>
+                  </div>
                 </article>
               </div>
             </div>
@@ -358,5 +341,13 @@
     </div>
     <script src="about-colors.js"></script>
     <script src="carousel.js"></script>
+    <script>
+      document.querySelectorAll('.project-img-wrap').forEach(function(wrap) {
+        wrap.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') return;
+          wrap.classList.toggle('revealed');
+        });
+      });
+    </script>
   </body>
 </html>
