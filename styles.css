@@ -178,6 +178,14 @@ h2 {
 .about-callout--yellow { border-color: var(--clr-yellow); }
 .about-callout--taupe  { border-color: var(--clr-taupe); }
 
+.highlight-cyan {
+  color: var(--clr-cyan);
+}
+
+.highlight-yellow {
+  color: var(--clr-yellow);
+}
+
 /* ── Sections ────────────────────────────────────────────── */
 .section {
   margin-top: 40px;
