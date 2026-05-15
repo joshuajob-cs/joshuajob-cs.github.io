@@ -7,3 +7,6 @@ https://joshuajob-cs.github.io
 
 Additional links:
 https://www.linkedin.com/in/joshua-job-cs/
+
+References
+Chess image came from Daniel Stiel (unsplash.com, open source license)
