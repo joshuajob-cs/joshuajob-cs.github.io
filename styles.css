@@ -296,3 +296,36 @@ h2 {
     padding: 28px;
   }
 }
+
+/* ── Floating elephant nav ─────────────────────────────────── */
+.nav-elephant {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 1000;
+  display: block;
+  width: 48px;
+  height: 48px;
+  opacity: 0.75;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.nav-elephant img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav-elephant:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@media (max-width: 640px) {
+  .nav-elephant {
+    width: 36px;
+    height: 36px;
+    top: 8px;
+    right: 12px;
+  }
+}
