@@ -5,16 +5,16 @@
    Surface:    --clr-surface (#1A1A1A)  cards, hero background
    ──────────────────────────────────────────────────────────── */
 :root {
-  --clr-bg:          #0D0D0D;
-  --clr-surface:     #1A1A1A;
-  --clr-surface-2:   #252525;
-  --clr-yellow:      #F5C000;
+  --clr-bg: #0d0d0d;
+  --clr-surface: #1a1a1a;
+  --clr-surface-2: #252525;
+  --clr-yellow: #f5c000;
   --clr-yellow-glow: rgba(245, 192, 0, 0.14);
-  --clr-cyan:        #00BFFF;
-  --clr-taupe:       #C4B9A8;
-  --clr-text:        #F5F0E8;
-  --clr-text-muted:  #7A7060;
-  --clr-border:      rgba(245, 240, 232, 0.08);
+  --clr-cyan: #00bfff;
+  --clr-taupe: #c4b9a8;
+  --clr-text: #f5f0e8;
+  --clr-text-muted: #7a7060;
+  --clr-border: rgba(245, 240, 232, 0.08);
 }
 
 * {
@@ -40,8 +40,16 @@ body {
   background-color: var(--clr-bg);
   color: var(--clr-text);
   background-image:
-    radial-gradient(ellipse at top left,  rgba(245, 192,   0, 0.06), transparent 40%),
-    radial-gradient(ellipse at bottom right, rgba(0, 191, 255, 0.05), transparent 40%);
+    radial-gradient(
+      ellipse at top left,
+      rgba(245, 192, 0, 0.06),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(0, 191, 255, 0.05),
+      transparent 40%
+    );
 }
 
 .geo-bg {
@@ -60,7 +68,6 @@ body {
   margin: 0 auto;
   padding: 36px 24px 60px;
 }
-
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .btn {
@@ -84,7 +91,7 @@ body {
 
 .btn--primary {
   background: var(--clr-yellow);
-  color: #0D0D0D;
+  color: #0d0d0d;
   box-shadow: 0 8px 32px rgba(245, 192, 0, 0.25);
 }
 
@@ -109,7 +116,12 @@ h2,
 h3 {
   margin: 0;
   color: var(--clr-text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .about-heading {
@@ -175,9 +187,15 @@ h2 {
   transition: border-color 0.35s ease;
 }
 
-.about-callout--cyan   { border-color: var(--clr-cyan); }
-.about-callout--yellow { border-color: var(--clr-yellow); }
-.about-callout--taupe  { border-color: var(--clr-taupe); }
+.about-callout--cyan {
+  border-color: var(--clr-cyan);
+}
+.about-callout--yellow {
+  border-color: var(--clr-yellow);
+}
+.about-callout--taupe {
+  border-color: var(--clr-taupe);
+}
 
 .highlight-cyan {
   color: var(--clr-cyan);

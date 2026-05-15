@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="hero.css" />
+    <link rel="stylesheet" href="carousel.css" />
   </head>
   <body>
     <!-- Geometric background shapes -->
@@ -216,76 +217,91 @@
           </div>
         </section>
 
-        <section class="section card-section">
+        <section class="section card-section" id="projects">
           <h2>Projects</h2>
-          <div class="grid">
-            <article class="card">
-              <h3>
-                <a
-                  href="https://github.com/joshuajob-cs/startup"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Psychic Questions</a
-                >
-              </h3>
-              <p>
-                A JavaScript project with MIT License. Building something new
-                and exciting.
-              </p>
-            </article>
-            <article class="card">
-              <h3>
-                <a
-                  href="https://github.com/joshuajob-cs/chess"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Chess</a
-                >
-              </h3>
-              <p>A Java implementation of the classic chess game.</p>
-            </article>
-            <article class="card">
-              <h3>
-                <a
-                  href="https://github.com/joshuajob-cs/elephant-video-game"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Elephant Video Game</a
-                >
-              </h3>
-              <p>
-                High school senior project using Godot engine. A ~10 minute
-                video game to teach Calculus.
-              </p>
-            </article>
-            <article class="card">
-              <h3>
-                <a
-                  href="https://github.com/joshuajob-cs/face-cannon"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Face Cannon</a
-                >
-              </h3>
-              <p>
-                AP Computer Science A project in Python. A cannon that shoots
-                faces to collect coins.
-              </p>
-            </article>
-            <article class="card">
-              <h3>
-                <a
-                  href="https://github.com/joshuajob-cs/sudoku-solver"
-                  target="_blank"
-                  rel="noreferrer"
-                  >Sudoku Solver</a
-                >
-              </h3>
-              <p>
-                A Java program to solve Sudoku puzzles. Created in high school,
-                took over a month to develop.
-              </p>
-            </article>
+          <div class="carousel-wrapper">
+            <div class="carousel-stage">
+              <div class="carousel-ring" id="projectsRing">
+                <article class="card">
+                  <h3>
+                    <a
+                      href="https://github.com/joshuajob-cs/startup"
+                      target="_blank"
+                      rel="noreferrer"
+                      >Psychic Questions</a
+                    >
+                  </h3>
+                  <p>
+                    A JavaScript project with MIT License. Building something new
+                    and exciting.
+                  </p>
+                </article>
+                <article class="card">
+                  <h3>
+                    <a
+                      href="https://github.com/joshuajob-cs/chess"
+                      target="_blank"
+                      rel="noreferrer"
+                      >Chess</a
+                    >
+                  </h3>
+                  <p>A Java implementation of the classic chess game.</p>
+                </article>
+                <article class="card">
+                  <h3>
+                    <a
+                      href="https://github.com/joshuajob-cs/elephant-video-game"
+                      target="_blank"
+                      rel="noreferrer"
+                      >Elephant Video Game</a
+                    >
+                  </h3>
+                  <p>
+                    High school senior project using Godot engine. A ~10 minute
+                    video game to teach Calculus.
+                  </p>
+                </article>
+                <article class="card">
+                  <h3>
+                    <a
+                      href="https://github.com/joshuajob-cs/face-cannon"
+                      target="_blank"
+                      rel="noreferrer"
+                      >Face Cannon</a
+                    >
+                  </h3>
+                  <p>
+                    AP Computer Science A project in Python. A cannon that shoots
+                    faces to collect coins.
+                  </p>
+                </article>
+                <article class="card">
+                  <h3>
+                    <a
+                      href="https://github.com/joshuajob-cs/sudoku-solver"
+                      target="_blank"
+                      rel="noreferrer"
+                      >Sudoku Solver</a
+                    >
+                  </h3>
+                  <p>
+                    A Java program to solve Sudoku puzzles. Created in high school,
+                    took over a month to develop.
+                  </p>
+                </article>
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button class="carousel-btn" id="projectsPrev">&#8592;</button>
+              <div class="carousel-dots" id="projectsDots">
+                <span class="dot dot--active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <button class="carousel-btn" id="projectsNext">&#8594;</button>
+            </div>
           </div>
         </section>
 
@@ -336,5 +352,33 @@
       </main>
     </div>
     <script src="about-colors.js"></script>
+    <script>
+      (function () {
+        var cards = document.querySelectorAll('#projectsRing .card');
+        var dots  = document.querySelectorAll('#projectsDots .dot');
+        var N     = cards.length;
+        var current = 0;
+
+        function rotateTo(idx) {
+          current = ((idx % N) + N) % N;
+          cards.forEach(function (card, i) {
+            card.classList.remove('pos--center', 'pos--left', 'pos--right');
+            var diff = ((i - current) % N + N) % N;
+            if (diff === 0)            card.classList.add('pos--center');
+            else if (diff === 1)       card.classList.add('pos--right');
+            else if (diff === N - 1)   card.classList.add('pos--left');
+          });
+          dots.forEach(function (d, i) {
+            d.classList.toggle('dot--active', i === current);
+          });
+        }
+
+        document.getElementById('projectsPrev').addEventListener('click', function () { rotateTo(current - 1); });
+        document.getElementById('projectsNext').addEventListener('click', function () { rotateTo(current + 1); });
+        dots.forEach(function (d, i) { d.addEventListener('click', function () { rotateTo(i); }); });
+
+        rotateTo(0);
+      })();
+    </script>
   </body>
 </html>
