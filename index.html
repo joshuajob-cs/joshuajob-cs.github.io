@@ -379,7 +379,9 @@
 
         var stage = document.querySelector('.carousel-stage');
         var touchStartX = 0;
+        var touchStartY = 0;
         var isDragging = false;
+        var isHorizontal = null;
         var isAnimating = false;
         var peekCard = null;
 
@@ -388,7 +390,9 @@
         stage.addEventListener('touchstart', function (e) {
           if (isAnimating) return;
           touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
           isDragging = true;
+          isHorizontal = null;
           peekCard = null;
           if (isMobile()) {
             var center = document.querySelector('#projectsRing .pos--center');
@@ -399,6 +403,14 @@
         stage.addEventListener('touchmove', function (e) {
           if (!isDragging || !isMobile() || isAnimating) return;
           var dx = e.touches[0].clientX - touchStartX;
+          var dy = e.touches[0].clientY - touchStartY;
+
+          if (isHorizontal === null) {
+            if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+            isHorizontal = Math.abs(dx) > Math.abs(dy);
+          }
+          if (!isHorizontal) return;
+          e.preventDefault();
           if (dx === 0) return;
 
           var center = document.querySelector('#projectsRing .pos--center');
@@ -427,7 +439,7 @@
           peekCard.style.transition = 'none';
           var w = stage.offsetWidth;
           peekCard.style.transform = 'translateX(' + (dx < 0 ? w + dx : -w + dx) + 'px)';
-        }, { passive: true });
+        }, { passive: false });
 
         stage.addEventListener('touchend', function (e) {
           if (!isDragging) return;
