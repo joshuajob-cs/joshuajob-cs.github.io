@@ -230,20 +230,44 @@
                 <article class="card project-card">
                   <h3>Eduquest</h3>
                   <div class="project-img-wrap">
-                    <img src="assets/PersonalizedLearning.png" alt="Eduquest screenshot" />
+                    <img
+                      src="assets/PersonalizedLearning2.png"
+                      alt="Eduquest screenshot"
+                      style="--img-pos: top left"
+                    />
                     <div class="project-overlay">
-                      <p>AI-powered platform helping parents and teachers create fun learning projects for students.</p>
-                      <a href="https://www.eduquestai.org/" target="_blank" rel="noreferrer">Visit Eduquest</a>
+                      <p>
+                        AI-powered platform helping parents and teachers create
+                        fun learning projects for students.
+                      </p>
+                      <a
+                        href="https://www.eduquestai.org/"
+                        target="_blank"
+                        rel="noreferrer"
+                        >Visit Eduquest</a
+                      >
                     </div>
                   </div>
                 </article>
                 <article class="card project-card">
                   <h3>Psychic Questions</h3>
                   <div class="project-img-wrap">
-                    <img src="assets/PsychicQuestions.png" alt="Psychic Questions screenshot" />
+                    <img
+                      src="assets/PsychicQuestions.png"
+                      alt="Psychic Questions screenshot"
+                      style="--img-pos: top left"
+                    />
                     <div class="project-overlay">
-                      <p>A JavaScript project with MIT License. Building something new and exciting.</p>
-                      <a href="https://github.com/joshuajob-cs/startup" target="_blank" rel="noreferrer">View on GitHub</a>
+                      <p>
+                        A JavaScript project with MIT License. Building
+                        something new and exciting.
+                      </p>
+                      <a
+                        href="https://github.com/joshuajob-cs/startup"
+                        target="_blank"
+                        rel="noreferrer"
+                        >View on GitHub</a
+                      >
                     </div>
                   </div>
                 </article>
@@ -253,47 +277,54 @@
                     <img src="assets/Chess.png" alt="Chess screenshot" />
                     <div class="project-overlay">
                       <p>A Java implementation of the classic chess game.</p>
-                      <a href="https://github.com/joshuajob-cs/chess" target="_blank" rel="noreferrer">View on GitHub</a>
+                      <a
+                        href="https://github.com/joshuajob-cs/chess"
+                        target="_blank"
+                        rel="noreferrer"
+                        >View on GitHub</a
+                      >
                     </div>
                   </div>
                 </article>
                 <article class="card project-card">
                   <h3>Elephant Video Game</h3>
                   <div class="project-img-wrap">
-                    <img src="assets/CalculusVideoGame.jpg" alt="Elephant Video Game screenshot" />
+                    <img
+                      src="assets/CalculusVideoGame.jpg"
+                      alt="Elephant Video Game screenshot"
+                    />
                     <div class="project-overlay">
-                      <p>High school senior project using Godot engine. A ~10 minute video game to teach Calculus.</p>
-                      <a href="https://github.com/joshuajob-cs/elephant-video-game" target="_blank" rel="noreferrer">View on GitHub</a>
-                    </div>
-                  </div>
-                </article>
-                <article class="card project-card">
-                  <h3>Face Cannon</h3>
-                  <div class="project-img-wrap">
-                    <img src="assets/PsychicQuestions.png" alt="Face Cannon screenshot" />
-                    <div class="project-overlay">
-                      <p>AP Computer Science A project in Python. A cannon that shoots faces to collect coins.</p>
-                      <a href="https://github.com/joshuajob-cs/face-cannon" target="_blank" rel="noreferrer">View on GitHub</a>
-                    </div>
-                  </div>
-                </article>
-                <article class="card project-card">
-                  <h3>Sudoku Solver</h3>
-                  <div class="project-img-wrap">
-                    <img src="assets/PsychicQuestions.png" alt="Sudoku Solver screenshot" />
-                    <div class="project-overlay">
-                      <p>A Java program to solve Sudoku puzzles. Created in high school, took over a month to develop.</p>
-                      <a href="https://github.com/joshuajob-cs/sudoku-solver" target="_blank" rel="noreferrer">View on GitHub</a>
+                      <p>
+                        High school senior project using Godot engine. A ~10
+                        minute video game to teach Calculus.
+                      </p>
+                      <a
+                        href="https://github.com/joshuajob-cs/elephant-video-game"
+                        target="_blank"
+                        rel="noreferrer"
+                        >View on GitHub</a
+                      >
                     </div>
                   </div>
                 </article>
                 <article class="card project-card">
                   <h3>Heritage Halls Kiss Count</h3>
                   <div class="project-img-wrap">
-                    <img src="assets/HeritageHalls.png" alt="Heritage Halls Kiss Count screenshot" />
+                    <img
+                      src="assets/HeritageHalls.png"
+                      alt="Heritage Halls Kiss Count screenshot"
+                    />
                     <div class="project-overlay">
-                      <p>Counted every kiss in the Heritage Halls promotional video.</p>
-                      <a href="https://www.youtube.com/watch?v=IVDw57KXviE" target="_blank" rel="noreferrer">Watch on YouTube</a>
+                      <p>
+                        Counted every kiss in the Heritage Halls promotional
+                        video.
+                      </p>
+                      <a
+                        href="https://www.youtube.com/watch?v=IVDw57KXviE"
+                        target="_blank"
+                        rel="noreferrer"
+                        >Watch on YouTube</a
+                      >
                     </div>
                   </div>
                 </article>
@@ -303,8 +334,6 @@
               <button class="carousel-btn" id="projectsPrev">&#8592;</button>
               <div class="carousel-dots" id="projectsDots">
                 <span class="dot dot--active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -364,10 +393,10 @@
     <script src="about-colors.js"></script>
     <script src="carousel.js"></script>
     <script>
-      document.querySelectorAll('.project-img-wrap').forEach(function(wrap) {
-        wrap.addEventListener('click', function(e) {
-          if (e.target.tagName === 'A') return;
-          wrap.classList.toggle('revealed');
+      document.querySelectorAll(".project-img-wrap").forEach(function (wrap) {
+        wrap.addEventListener("click", function (e) {
+          if (e.target.tagName === "A") return;
+          wrap.classList.toggle("revealed");
         });
       });
     </script>
