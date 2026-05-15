@@ -97,7 +97,38 @@
 }
 
 @media (max-width: 600px) {
-  .carousel-ring .card { width: 220px; margin-left: -110px; }
-  .carousel-ring .card.pos--left  { transform: translateX(-190px) rotateY(30deg) scale(0.78); }
-  .carousel-ring .card.pos--right { transform: translateX(190px)  rotateY(-30deg) scale(0.78); }
+  .carousel-wrapper {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .carousel-stage {
+    height: auto;
+    overflow: visible;
+    perspective: none;
+  }
+
+  /* Center card: join normal flow so stage gets natural height */
+  .carousel-ring .card.pos--center {
+    position: relative;
+    width: 100%;
+    left: auto;
+    margin-left: 0;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Side peek cards: completely hidden on mobile */
+  .carousel-ring .card.pos--left,
+  .carousel-ring .card.pos--right {
+    display: none;
+  }
+}
+
+/* Hide arrow buttons on touch devices — swipe to navigate instead */
+@media (hover: none) and (pointer: coarse) {
+  .carousel-btn {
+    display: none;
+  }
 }
