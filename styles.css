@@ -197,18 +197,18 @@ h2 {
   border-color: var(--clr-taupe);
 }
 
-.eduquest-link {
+.brand-link {
   position: relative;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
 
-.eduquest-link:hover strong {
+.brand-link:hover strong {
   color: var(--clr-yellow);
 }
 
-.eduquest-tooltip {
+.brand-tooltip {
   position: absolute;
   bottom: calc(100% + 6px);
   left: 50%;
@@ -226,7 +226,7 @@ h2 {
   transition: opacity 0.15s ease;
 }
 
-.eduquest-link:hover .eduquest-tooltip {
+.brand-link:hover .brand-tooltip {
   opacity: 1;
 }
 
@@ -281,6 +281,20 @@ h2 {
 
 .card a:hover {
   color: var(--clr-yellow);
+}
+
+/* ── Studio section ──────────────────────────────────────── */
+.studio-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.studio-mark {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  flex-shrink: 0;
 }
 
 /* ── Project cards ───────────────────────────────────────── */
@@ -432,4 +446,14 @@ h2 {
     top: 8px;
     right: 12px;
   }
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.site-footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid var(--clr-border);
+  text-align: center;
+  color: var(--clr-text-muted);
+  font-size: 0.85rem;
 }

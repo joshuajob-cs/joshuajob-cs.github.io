@@ -119,9 +119,11 @@
     pointer-events: auto;
   }
 
-  /* Side peek cards: completely hidden on mobile */
-  .carousel-ring .card.pos--left,
-  .carousel-ring .card.pos--right {
+  /* Off-stage cards hidden on mobile. Covers the side peek cards and the
+     unpositioned ones, which otherwise keep width: 400px and push the page
+     wider than the viewport. Swipe still works: initPeekCard() sets an inline
+     display: block on the incoming card. */
+  .carousel-ring .card:not(.pos--center) {
     display: none;
   }
 }
