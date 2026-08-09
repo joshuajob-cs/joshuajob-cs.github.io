@@ -291,6 +291,52 @@ h2 {
   color: var(--clr-yellow);
 }
 
+/* ── Stacked role cards ──────────────────────────────────── */
+.card-stack {
+  display: grid;
+  position: relative;
+  isolation: isolate;
+  align-self: start;
+  padding: 0 16px 16px 0;
+  cursor: pointer;
+}
+
+.card--stacked {
+  grid-area: 1 / 1;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s;
+}
+
+.card--stacked.is-front {
+  z-index: 2;
+  transform: none;
+  opacity: 1;
+}
+
+.card--stacked.is-back {
+  z-index: 1;
+  transform: translate(16px, 16px) scale(0.98);
+  opacity: 0.6;
+  background: var(--clr-surface-2);
+  border-color: color-mix(in srgb, var(--clr-cyan) 30%, transparent);
+}
+
+.card-stack:hover .card--stacked.is-back {
+  transform: translate(16px, 13px) scale(0.98);
+  opacity: 0.85;
+}
+
+.card--stacked.is-back a {
+  pointer-events: none;
+}
+
+.card-stack:focus-visible {
+  outline: 2px solid var(--clr-yellow);
+  outline-offset: 4px;
+  border-radius: 22px;
+}
+
 /* ── Studio section ──────────────────────────────────────── */
 .studio-head {
   display: flex;
@@ -420,6 +466,21 @@ h2 {
 
   .hero-title {
     padding: 28px;
+  }
+
+  .card-stack {
+    padding: 0 10px 10px 0;
+  }
+
+  .card--stacked.is-back,
+  .card-stack:hover .card--stacked.is-back {
+    transform: translate(10px, 10px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card--stacked {
+    transition: none;
   }
 }
 

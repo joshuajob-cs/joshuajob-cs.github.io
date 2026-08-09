@@ -382,33 +382,47 @@
         <section class="section card-section">
           <h2>Work</h2>
           <div class="grid">
-            <article class="card">
-              <h3>Founder — Elephantelate</h3>
-              <p class="card-label">2026 – present</p>
-              <p>
-                Websites for growing startups. Design, build, ship — one person,
-                no handoffs, no account manager.
-              </p>
-            </article>
-            <article class="card">
-              <h3>
-                CTO —
-                <a
-                  href="https://www.eduquestai.org/"
-                  target="_blank"
-                  rel="noopener"
-                  class="brand-link"
-                  ><strong>Eduquest</strong
-                  ><span class="brand-tooltip">Go to Eduquest</span></a
-                >
-              </h3>
-              <p class="card-label">2026</p>
-              <p>
-                Led engineering for an ed-tech startup building AI that turns a
-                teacher's lesson plan into a project students want to do.
-                Shipped the product end to end.
-              </p>
-            </article>
+            <div
+              class="card-stack"
+              id="rolesStack"
+              role="button"
+              tabindex="0"
+              aria-label="Flip between roles"
+            >
+              <article
+                class="card card--stacked"
+                data-stack-title="Founder — Elephantelate"
+              >
+                <h3>Founder — Elephantelate</h3>
+                <p class="card-label">2026 – present</p>
+                <p>
+                  Websites for growing startups. Design, build, ship — one
+                  person, no handoffs, no account manager.
+                </p>
+              </article>
+              <article
+                class="card card--stacked"
+                data-stack-title="CTO — Eduquest"
+              >
+                <h3>
+                  CTO —
+                  <a
+                    href="https://www.eduquestai.org/"
+                    target="_blank"
+                    rel="noopener"
+                    class="brand-link"
+                    ><strong>Eduquest</strong
+                    ><span class="brand-tooltip">Go to Eduquest</span></a
+                  >
+                </h3>
+                <p class="card-label">2026</p>
+                <p>
+                  Led engineering for an ed-tech startup building AI that turns
+                  a teacher's lesson plan into a project students want to do.
+                  Shipped the product end to end.
+                </p>
+              </article>
+            </div>
             <article class="card">
               <h3>Technical areas</h3>
               <ul>
@@ -470,6 +484,53 @@
           }, 3000);
         });
       });
+
+      (function () {
+        var stack = document.getElementById("rolesStack");
+        if (!stack) return;
+        var cards = stack.querySelectorAll(".card--stacked");
+        var front = 0;
+
+        function render() {
+          cards.forEach(function (card, i) {
+            var isFront = i === front;
+            card.classList.toggle("is-front", isFront);
+            card.classList.toggle("is-back", !isFront);
+            card.querySelectorAll("a").forEach(function (link) {
+              if (isFront) link.removeAttribute("tabindex");
+              else link.setAttribute("tabindex", "-1");
+            });
+          });
+          var other = cards[(front + 1) % cards.length];
+          stack.setAttribute(
+            "aria-label",
+            "Showing " +
+              cards[front].dataset.stackTitle +
+              ". Activate to show " +
+              other.dataset.stackTitle +
+              ".",
+          );
+        }
+
+        function flip() {
+          front = (front + 1) % cards.length;
+          render();
+        }
+
+        stack.addEventListener("click", function (e) {
+          if (e.target.closest("a")) return;
+          flip();
+        });
+
+        stack.addEventListener("keydown", function (e) {
+          if (e.key !== "Enter" && e.key !== " ") return;
+          if (e.target.closest("a")) return;
+          e.preventDefault();
+          flip();
+        });
+
+        render();
+      })();
 
       document.querySelectorAll(".project-img-wrap").forEach(function (wrap) {
         wrap.addEventListener("click", function (e) {
