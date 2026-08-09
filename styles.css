@@ -338,10 +338,59 @@ h2 {
 }
 
 /* ── Studio section ──────────────────────────────────────── */
+#elephantelate {
+  container-type: inline-size;
+  gap: 0; /* spacing moves inside the panel so collapsed leaves no dead gap */
+}
+
+.studio-title {
+  margin: 0;
+}
+
 .studio-head {
   display: flex;
   align-items: center;
   gap: 16px;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transform: translateX(calc(50cqw - 50%));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#elephantelate.is-open .studio-head {
+  transform: none;
+}
+
+.studio-head:hover .studio-name {
+  color: var(--clr-yellow);
+}
+
+.studio-head:focus-visible {
+  outline: 2px solid var(--clr-yellow);
+  outline-offset: 4px;
+  border-radius: 18px;
+}
+
+.studio-name {
+  transition: color 160ms ease;
+}
+
+.studio-chevron {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--clr-yellow);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#elephantelate.is-open .studio-chevron {
+  transform: rotate(180deg);
 }
 
 .studio-mark {
@@ -349,6 +398,32 @@ h2 {
   height: 72px;
   border-radius: 18px;
   flex-shrink: 0;
+}
+
+.studio-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease;
+}
+
+/* The clip element must have no padding of its own, or that padding becomes a
+   min-content floor the 0fr row cannot shrink past. The 20px that replaces the
+   section's gap therefore lives on the inner .grid, inside the clipped box. */
+.studio-panel-clip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.studio-panel-clip > .grid {
+  padding-top: 20px;
+}
+
+#elephantelate.is-open .studio-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 /* ── Project cards ───────────────────────────────────────── */
@@ -479,7 +554,10 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card--stacked {
+  .card--stacked,
+  .studio-head,
+  .studio-chevron,
+  .studio-panel {
     transition: none;
   }
 }

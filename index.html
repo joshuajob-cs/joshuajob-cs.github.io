@@ -228,37 +228,68 @@
         </section>
 
         <section class="section card-section" id="elephantelate">
-          <div class="studio-head">
-            <img src="assets/ColorfulElephant.png" alt="" class="studio-mark" />
-            <h2>Elephantelate</h2>
-          </div>
-          <div class="grid">
-            <article class="card">
-              <h3>What I build</h3>
-              <p>
-                Engaging custom websites: online stores for product brands,
-                content hubs for podcasters and creators, and experience-first
-                sites for local businesses and events. Design, build, and SEO in
-                one pass.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Who it's for</h3>
-              <p>
-                Ambitious startups and entrepreneurs ready to build an awesome
-                brand &mdash; retail, digital media, and local services
-                especially.
-              </p>
-            </article>
-            <article class="card">
-              <h3>How it works</h3>
-              <p>
-                I take your brand identity and infuse it into a custom webpage
-                that shortens the trip from visitor to customer &mdash; a
-                seamless buy, a click to your best content, or a taste of the
-                experience before they arrive.
-              </p>
-            </article>
+          <h2 class="studio-title">
+            <button
+              type="button"
+              class="studio-head"
+              id="studioToggle"
+              aria-expanded="false"
+              aria-controls="studioPanel"
+            >
+              <img
+                src="assets/ColorfulElephant.png"
+                alt=""
+                class="studio-mark"
+              />
+              <span class="studio-name">Elephantelate</span>
+              <svg
+                class="studio-chevron"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </h2>
+          <div class="studio-panel" id="studioPanel" inert>
+            <div class="studio-panel-clip">
+              <div class="grid">
+                <article class="card">
+                  <h3>What I build</h3>
+                  <p>
+                    Engaging custom websites: online stores for product brands,
+                    content hubs for podcasters and creators, and
+                    experience-first sites for local businesses and events.
+                    Design, build, and SEO in one pass.
+                  </p>
+                </article>
+                <article class="card">
+                  <h3>Who it's for</h3>
+                  <p>
+                    Ambitious startups and entrepreneurs ready to build an
+                    awesome brand &mdash; retail, digital media, and local
+                    services especially.
+                  </p>
+                </article>
+                <article class="card">
+                  <h3>How it works</h3>
+                  <p>
+                    I take your brand identity and infuse it into a custom
+                    webpage that shortens the trip from visitor to customer
+                    &mdash; a seamless buy, a click to your best content, or a
+                    taste of the experience before they arrive.
+                  </p>
+                </article>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -538,6 +569,20 @@
           wrap.classList.toggle("revealed");
         });
       });
+
+      (function () {
+        var section = document.getElementById("elephantelate");
+        var toggle = document.getElementById("studioToggle");
+        var panel = document.getElementById("studioPanel");
+        if (!section || !toggle || !panel) return;
+
+        toggle.addEventListener("click", function () {
+          var open = section.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", String(open));
+          if (open) panel.removeAttribute("inert");
+          else panel.setAttribute("inert", "");
+        });
+      })();
     </script>
   </body>
 </html>
