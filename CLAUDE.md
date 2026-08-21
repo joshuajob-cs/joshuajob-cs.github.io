@@ -1,8 +1,11 @@
 # CLAUDE.md
 
-Joshua Job's personal site — one page, hand-written. Run it with the command in
-[Notes.md](Notes.md); the public description and image credits are in [README.md](README.md).
-`safe-links.md` (gitignored, local only) lists the URLs that are safe to link.
+Joshua Job's personal site — one page, hand-written. The public description and image credits are
+in [README.md](README.md). `safe-links.md` (gitignored, local only) lists the URLs that are safe to
+link.
+
+Run it with `python3 -m http.server 8000`, open <http://localhost:8000>, and hard-reload with
+Ctrl+Shift+R — this site caches aggressively and a soft reload will lie to you.
 
 ## No build step. That is the point.
 
@@ -35,8 +38,15 @@ projects rail (arrows, dots, keyboard, mobile swipe).
 **Adding a project card touches three places.** Add the `<article class="card project-card">` to
 `#projectsRing`, add one more `<span class="dot"></span>` to `#projectsDots` — the dots are static
 markup, `carousel.js` only reads them — and drop the image in `assets/`. Assets are PascalCase and
-project screenshots are roughly 1300×620 PNGs, cropped by CSS to 16:9. Card order in the markup is
-the order in the rail, and the first card is what a visitor sees first.
+project screenshots are roughly 1300×620, cropped by CSS to 16:9. Card order in the markup is the
+order in the rail, and the first card is what a visitor sees first.
+
+**Two things in `assets/` aren't ordinary screenshots.** `assets/unpublished/` is gitignored — it
+holds full-resolution originals and spare art kept for other projects, and nothing on the page may
+reference it. `OGCard.png` is the 1200×630 link-preview image named by the `og:image` tag in the
+`<head>`; it was *generated* by screenshotting a throwaway HTML card, not drawn by hand, so
+regenerate it the same way rather than editing the PNG. Keep new photos web-sized — the Chess
+screenshot was once a 15 MB PNG and dominated the whole page.
 
 ## The positioning, so you don't "fix" it
 
